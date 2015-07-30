@@ -1,3 +1,18 @@
+defmodule ExTwitter.Model.DirectMessage do
+  @moduledoc """
+  Direct message object.
+
+  ## Reference
+  https://dev.twitter.com/rest/reference/post/direct_messages/new
+  """
+  defstruct created_at: nil, entities: nil, id: nil, id_str: nil,
+    recipient: nil, recipient_id: nil, recipient_screen_name: nil,
+    sender: nil, sender_id: nil, sender_screen_name: nil,
+    text: nil
+
+  @type t :: %__MODULE__{}
+end
+
 defmodule ExTwitter.Model.Tweet do
   @moduledoc """
   Tweet object.

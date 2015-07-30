@@ -478,6 +478,23 @@ defmodule ExTwitter do
 
   # --------------  Direct Messages -------------
 
+  @doc """
+  POST direct_messages/new
+
+  ## Examples
+
+      ExTwitter.send_direct_message("elixirlang", "Hello Elixir!")
+      ExTwitter.send_direct_message(507309896, "Hello Elixir!")
+
+  NOTE: The standard behavior of Direct Messages on Twitter requires that the
+  recipient be following the sender.
+
+  ## Reference
+  https://dev.twitter.com/rest/reference/post/direct_messages/new
+  """
+  @spec send_direct_message(String.t | Integer, String.t) :: ExTwitter.Model.Tweet.t
+  defdelegate send_direct_message(id_or_screen_name, text), to: ExTwitter.API.DirectMessages, as: :new
+
   # -------------- Friends & Followers -------------
 
   # GET friendships/no_retweets/ids

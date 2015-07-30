@@ -4,6 +4,17 @@ defmodule ExTwitter.Parser do
   """
 
   @doc """
+  Parse direct message from the API response json.
+  """
+  def parse_direct_message(object) do
+    direct_message = struct(ExTwitter.Model.DirectMessage, object)
+    recipient  = parse_user(direct_message.recipient)
+    sender  = parse_user(direct_message.sender)
+    direct_message = %{direct_message | recipient: recipient}
+    %{direct_message | sender: sender}
+  end
+
+  @doc """
   Parse tweet record from the API response json.
   """
   def parse_tweet(object) do
